@@ -1,0 +1,28 @@
+- name: Install ZSH
+  apt: name=zsh
+  tags: &tags_for_zsh_tasks [ 'install', 'productivity', 'dotfiles', 'zsh' ]
+    
+- name: Install NerdFont
+  become: true
+  apt: name=fonts-firacode
+  tags: *tags_for_zsh_tasks
+
+- name: Change shell to zsh
+  shell: chsh -s $(which zsh)
+  tags: *tags_for_zsh_tasks
+
+- name: Install Starship 
+  shell: curl -fsSL https://starship.rs/install.sh | sh -s -- --yes
+  tags: *tags_for_zsh_tasks
+
+- name: Install zsh-autosuggestions
+  ansible.builtin.git:
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+    dest: "~/.zsh/zsh-autosuggestions"
+  tags: *tags_for_zsh_tasks
+
+- name: Install Volta
+  shell: curl https://get.volta.sh | bash
+
+- name: Install Node
+  shell: export VOLTA_HOME="$HOME/.volta" && export PATH="$VOLTA_HOME/bin:$PATH" && volta install node@14
