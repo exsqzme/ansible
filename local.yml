@@ -23,12 +23,29 @@
             - install
       tags:
         - always
+    - name: Git Setup
+      include_tasks: tasks/git-setup.yml
+      args:
+        apply:
+          tags:
+            - git
+      tags:
+        - always
     - name: Core Setup
       include_tasks: tasks/core-setup.yml
       args:
         apply:
           tags:
             - core
+      tags:
+        - always
+    - name: .Dotfiles Setup
+      include_tasks: tasks/dotfiles.yml
+      args:
+        apply:
+          tags:
+            - dotfiles
+            - install
       tags:
         - always
     - name: Zsh Setup

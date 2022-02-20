@@ -39,3 +39,9 @@
     - install
     - dotfiles
     - neovim
+- name: Install plugins
+  shell: nvim +'PlugInstall --sync' +qall &> /dev/null < /dev/tty
+  tags:
+    - install
+    - dotfiles
+    - neovim

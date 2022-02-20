@@ -24,8 +24,19 @@
     - ssh
 - name: Set authorized key took from file
   authorized_key:
-    user: "{{ lookup('env', 'USER') }}"
+    user: docker
     state: present
-    key: "{{ lookup('env', 'HOME') }}/.ssh/ed25519_git.pub"
+    key: "{{ lookup('file', item) }}"
   with_fileglob:
   - "{{ lookup('env', 'HOME') }}/.ssh/*.pub"
+  tags:
+    - dotfiles
+    - ssh
+- name: Set Config
+  copy:
+    src: "./.ssh/config"
+    dest: "{{ lookup('env', 'HOME') }}/.ssh/config"
+    mode: 0644
+  tags:
+    - dotfiles
+    - ssh

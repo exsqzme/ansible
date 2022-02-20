@@ -1,4 +1,5 @@
 - name: Install ZSH
+  become: true
   apt: name=zsh
   tags: &tags_for_zsh_tasks [ 'install', 'productivity', 'dotfiles', 'zsh' ]
     
@@ -8,16 +9,18 @@
   tags: *tags_for_zsh_tasks
 
 - name: Change shell to zsh
+  become: true
   shell: chsh -s $(which zsh)
   tags: *tags_for_zsh_tasks
 
 - name: Install Starship 
+  become: true
   shell: curl -fsSL https://starship.rs/install.sh | sh -s -- --yes
   tags: *tags_for_zsh_tasks
 
 - name: Install zsh-autosuggestions
   ansible.builtin.git:
-    repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+    repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
     dest: "~/.zsh/zsh-autosuggestions"
   tags: *tags_for_zsh_tasks
 

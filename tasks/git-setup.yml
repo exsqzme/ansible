@@ -5,6 +5,7 @@
     value: "michael.aldave@outlook.com"
   tags:
   - git-personal
+  - install
 - name: Git personal setup name
   git_config:
     name: user.name
@@ -12,6 +13,7 @@
     value: "exSQZme"
   tags:
   - git-personal
+  - install
 - name: Git work setup email
   git_config:
     name: user.email
