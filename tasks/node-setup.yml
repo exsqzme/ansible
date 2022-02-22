@@ -8,19 +8,23 @@
   tags:
     - install
 
+- name: Install Node
+  shell: export VOLTA_HOME="$HOME/.volta" && export PATH="$VOLTA_HOME/bin:$PATH" && volta install yarn
+  tags:
+    - install
+    - yarn
+
 - name: Install Corepack
   npm:
     name: corepack
     global: yes
   tags:
-    - install
-    - yarn
+    - tbd
 
 - name: Install Yarn
   shell: corepack enable
   tags:
-    - install
-    - yarn
+    - tbd
 
 - name: Install eslint
   npm:
