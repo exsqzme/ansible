@@ -39,6 +39,14 @@
             - core
       tags:
         - always
+    - name: Tools Setup
+      include_tasks: tasks/tools.yml
+      args:
+        apply:
+          tags:
+            - tools
+      tags:
+        - always
     - name: .Dotfiles Setup
       include_tasks: tasks/dotfiles.yml
       args:
@@ -55,6 +63,16 @@
           tags:
             - zsh
             - install
+      tags:
+        - always
+    - name: Node Setup
+      include_tasks: tasks/node-setup.yml
+      args:
+        apply:
+          tags:
+            - node
+      tags:
+        - always
       tags:
         - always
     - name: Nvim Setup

@@ -1,0 +1,49 @@
+- name: Install Volta
+  shell: curl https://get.volta.sh | bash
+  tags:
+    - install
+
+- name: Install Node
+  shell: export VOLTA_HOME="$HOME/.volta" && export PATH="$VOLTA_HOME/bin:$PATH" && volta install node@14
+  tags:
+    - install
+
+- name: Install Corepack
+  npm:
+    name: corepack
+    global: yes
+  tags:
+    - install
+    - yarn
+
+- name: Install Yarn
+  shell: corepack enable
+  tags:
+    - install
+    - yarn
+
+- name: Install eslint
+  npm:
+    name: eslint
+    global: yes
+  tags:
+    - tbd
+- name: Install Typescript server
+  npm:
+    name: typescript-language-server
+    global: yes
+  tags:
+    - tbd
+- name: Install Typescript
+  npm:
+    name: typescript
+    global: yes
+  tags:
+    - tbd
+- name: Install TS-Node
+  npm:
+    name: ts-node
+    global: yes
+  tags:
+    - tbd
+
