@@ -1,14 +1,22 @@
 FROM ubuntu:focal
+
 ARG TAGS
-WORKDIR /usr/local/bin
-ARG DEBIAN_FRONTEND=noninteractive
+ARG USERNAME=docker
+EXPOSE 22
+
 RUN apt update && apt install -y software-properties-common && apt-add-repository -y ppa:ansible/ansible && apt update && apt install -y curl git ansible sudo
 
-RUN adduser --disabled-password --gecos '' docker
-RUN adduser docker sudo
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+RUN useradd -ms /bin/bash $USERNAME
 
-USER docker
+USER $USERNAME
+RUN mkdir /home/$USERNAME/.ssh
 
+USER root
+RUN echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL " >> /etc/sudoers
+
+USER $USERNAME
+ENV USER=$USERNAME
+
+WORKDIR /usr/local/bin
 COPY . .
 CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]

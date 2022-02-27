@@ -23,9 +23,3 @@
     repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
     dest: "~/.zsh/zsh-autosuggestions"
   tags: *tags_for_zsh_tasks
-
-- name: Install Volta
-  shell: curl https://get.volta.sh | bash
-
-- name: Install Node
-  shell: export VOLTA_HOME="$HOME/.volta" && export PATH="$VOLTA_HOME/bin:$PATH" && volta install node@14
