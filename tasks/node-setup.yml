@@ -1,5 +1,5 @@
 - name: Install Volta
-  shell: curl https://get.volta.sh | bash
+  shell: curl https://get.volta.sh | bash -s -- --skip-setup
   tags:
     - install
 
@@ -29,6 +29,24 @@
 - name: Install eslint
   npm:
     name: eslint
+    global: yes
+  tags:
+    - tbd
+- name: Install VSCODE lang servers
+  npm:
+    name: vscode-langservers-extracted
+    global: yes
+  tags:
+    - tbd
+- name: install Python lang servers
+  npm:
+    name: npm install -g pyright
+    global: yes
+  tags:
+    - tbd
+- name: install svelte lang servers
+  npm:
+    name: npm install -g svelte-language-server
     global: yes
   tags:
     - tbd

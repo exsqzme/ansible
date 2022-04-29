@@ -3,14 +3,22 @@
   apt: name=zsh
   tags: &tags_for_zsh_tasks [ 'install', 'productivity', 'dotfiles', 'zsh' ]
     
-- name: Install NerdFont
+- name: Download NerdFont
   become: true
-  apt: name=fonts-firacode
-  tags: *tags_for_zsh_tasks
+  shell: wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+  tags:
+    - *tags_for_zsh_tasks
+    - nerdfont 
+
+- name: Install NerdFont
+  shell: mkdir -p ~/.local/share/fonts && unzip FiraCode.zip -d ~/.local/share/fonts && fc-cache -fv
+  tags:
+    - *tags_for_zsh_tasks
+    - nerdfont 
 
 - name: Change shell to zsh
   become: true
-  shell: chsh -s $(which zsh)
+  shell: chsh -s $(which zsh) $USER
   tags: *tags_for_zsh_tasks
 
 - name: Install Starship 
@@ -22,4 +30,16 @@
   ansible.builtin.git:
     repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
     dest: "~/.zsh/zsh-autosuggestions"
+  tags: *tags_for_zsh_tasks
+
+- name: Install zsh-syntax-highlighting
+  ansible.builtin.git:
+    repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    dest: "~/.zsh/zsh-syntax-highlighting"
+  tags: *tags_for_zsh_tasks
+
+- name: Install zsh-vi-mode
+  ansible.builtin.git:
+    repo: "https://github.com/jeffreytse/zsh-vi-mode.git"
+    dest: "~/.zsh/zsh-vi-mode"
   tags: *tags_for_zsh_tasks

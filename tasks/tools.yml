@@ -1,7 +1,52 @@
 - name: Install productivity packages
   become: true
   apt:
-    name: [ "tmux", "wireshark", "fzf", "xclip", "tldr", "ripgrep", "fd-find", "lynx" ]
+    name: [ "tmux", "wireshark", "fzf", "xclip", "tldr", "ripgrep", "fd-find", "lynx", "httpie", "bat", "exa", "hexyl", "duf", "moreutils", "pv", "jo", "jq", "jc" ]
+  tags:
+    - install
+
+- name: Install Rust
+  shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  tags:
+    - install
+
+- name: Download Rust Anlyzer
+  ansible.builtin.git:
+    repo: "git@git@github.com:rust-analyzer/rust-analyzer.git"
+    dest: "{{ lookup('env', 'HOME') }}/dev/github.com/rust-analyzer/rust-analyzer"
+  tags:
+    - install
+- name: Install Rust Anlyzer
+  shell: cd ~/dev/github.com/rust-analyzer/rust-analyzer && cargo xtask install --server
+  tags:
+    - install
+
+- name: Install pyenv
+  shell: curl https://pyenv.run | bash
+  tags:
+    - install
+
+- name: Download and install pyenv-virtualenv
+  ansible.builtin.git:
+    repo: "https://github.com/pyenv/pyenv-virtualenv.git"
+    dest: "~/.pyenv/plugins/pyenv-virtualenv"
+  tags:
+    - install
+
+- name: Download delta git
+  ansible.builtin.git:
+    repo: "https://github.com/dandavison/delta"
+    dest: "~/dev/github.com/dandavison/delta"
+  tags:
+    - install
+
+- name: Install delta git
+  shell: cd ~/dev/github.com/dandavison/delta && cargo install --path
+  tags:
+    - install
+
+- name: Install Kitty
+  shell: curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
   tags:
     - install
 
