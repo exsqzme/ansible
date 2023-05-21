@@ -40,6 +40,15 @@
             - install
       tags:
         - always
+    - name: PKM Setup
+      include_tasks: tasks/pkm.yml
+      args:
+        apply:
+          tags:
+            - pkm
+            - install
+      tags:
+        - always
     - name: Core Setup
       include_tasks: tasks/core-setup.yml
       args:

@@ -1,0 +1,16 @@
+- name: Cloning pkm
+  ansible.builtin.git:
+    repo: "git@github.com:exsqzme/pkm.git"
+    dest: "{{ lookup('env', 'HOME') }}/dev/github.com/exsqzme/pkm/pkm"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: main
+  tags:
+    - pkm
+    - stow
+- name: Stow pkm
+  shell: stow --target=$HOME $HOME/dev/github.com/exsqzme/pkm
+  tags:
+    - pkm
+    - stow

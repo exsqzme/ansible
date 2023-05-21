@@ -1,6 +1,7 @@
 # ansible
 
 ## installed but review
+
 https://github.com/jpmens/jo
 https://stedolan.github.io/jq/download/
 https://github.com/antonmedv/fx
@@ -12,15 +13,23 @@ https://github.com/kellyjonbrazil/jc
 https://github.com/tomnomnom/gron
 
 ## NIX ??
+
 https://nixos.org/
 
 ## nushell ??
+
 https://nushell.sh
 
 ## moreutils and pv (already in tools)
+
 https://rentes.github.io/unix/utilities/2015/07/27/moreutils-package/
 http://www.ivarch.com/programs/pv.shtml
 https://catonmat.net/unix-utilities-pipe-viewer
+
+# neovim setup / upgrade / etc
+
+https://github.com/neovim/neovim/wiki/Building-Neovim#build-prerequisites
+https://dev.to/craftzdog/my-neovim-setup-for-react-typescript-tailwind-css-etc-58fb
 
 ## Manual Install Required
 
@@ -43,7 +52,7 @@ bottom
 https://github.com/ClementTsang/bottom
 
 tokei
-https://github.com/XAMPPRocky/tokei
+ttps://github.com/XAMPPRocky/tokei
 
 tealdeer vs tldr(already installed via tasks)
 https://github.com/dbrgn/tealdeer
@@ -83,10 +92,15 @@ https://github.com/BurntSushi/xsv
 gron
 https://github.com/tomnomnom/gron
 
+watchman
+https://github.com/facebook/watchman
 
 ## Missing
 
 i3
+
+or amethyst (mac)
+https://github.com/ianyh/Amethyst
 
 scripts
 
@@ -101,23 +115,16 @@ docker
 https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script
 https://docs.docker.com/compose/install/
 
-
 ssh (mac?)
 https://stackoverflow.com/questions/47455300/ssh-config-bad-configuration-option-usekeychain-on-mac-os-sierra-10-12-6
 
-
-
 https://github.com/tjdevries/config_manager/blob/5433763fea362091467adeed94065de085b527de/install/install_tools.sh
 
-
 ## TBD
+
 https://jvns.ca/blog/2022/04/12/a-list-of-new-ish--command-line-tools/
 https://github.com/ibraheemdev/modern-unix
 https://zaiste.net/posts/shell-commands-rust/
-
-
-
-
 
 zig / zig cc
 
@@ -163,8 +170,36 @@ https://github.com/phiresky/ripgrep-all
 nvim pager
 https://github.com/lucc/nvimpager
 
+neovide
+https://github.com/neovide/neovide
 
+autotag
+https://github.com/windwp/nvim-ts-autotag
+https://github.com/windwp/nvim-autopairs
 
+packer
+https://github.com/wbthomason/packer.nvim
 
+neovide
+https://github.com/neovide/neovide
 
+helix
+https://github.com/helix-editor/helix
 
+warp
+https://www.warp.dev/
+
+editorconfig
+https://github.com/editorconfig/editorconfig-vim
+
+peco
+https://github.com/peco/peco
+
+nerdcommenter
+https://github.com/preservim/nerdcommenter
+
+indent blankline
+https://github.com/lukas-reineke/indent-blankline.nvim
+
+git diffview
+https://github.com/sindrets/diffview.nvim
